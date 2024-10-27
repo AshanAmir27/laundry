@@ -1,0 +1,8 @@
+.carousel-image {
+  transition: transform 0.5s ease-in-out; /* Smooth transition effect */
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden; /* Prevent overflow from image scaling */
+}
