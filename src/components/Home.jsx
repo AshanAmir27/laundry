@@ -17,7 +17,7 @@ function Home() {
   return (
     <>
       <div>
-        <section className="relative h-full">
+        <section className="relative ">
           <div className="relative h-full w-full">
             <img className="h-[110vh] w-full object-cover" src="https://preview.colorlib.com/theme/laundry/assets/img/hero/h1_hero.png" alt="Laundry Service Hero" />
             <div className="absolute inset-0 h-[110vh] bg-black bg-opacity-50"></div>

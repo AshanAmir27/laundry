@@ -114,7 +114,7 @@ const Navbar = () => {
                 Blog
               </button>
               {isDropdownOpen && (
-                <div className="absolute  left-64  text-left w-40 bg-white border  shadow-lg rounded-sm z-50">
+                <div className="absolute  text-left w-40 bg-white border  shadow-lg rounded-sm z-50">
                   <ul>
                     <li>
                       <Link
