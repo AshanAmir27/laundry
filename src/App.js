@@ -5,7 +5,7 @@ import Services from "./components/Services"; // Correct the import path for Ser
 import Footer from "./components/Footer";
 import About from './components/About'
 import Contact from "./components/Contact";
-
+import Blog from './components/Blog'
 function App() {
   return (
     <Router> {/* Wrap your application with Router */}
@@ -14,7 +14,8 @@ function App() {
         <Routes> {/* Define the routes for your application */}
           <Route path="/" element={<Home />} /> {/* Home route */}
           <Route path="/services" element={<Services />} /> {/* Services route */}
-          <Route path="/about" element={<About />} /> 
+          <Route path="/about" element={<About />} />  
+          <Route path="/blog" element={<Blog />} />  
           <Route path="/contact" element={<Contact />} /> 
           {/* You can add more routes here as needed */}
         </Routes>

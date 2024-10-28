@@ -1,20 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import logo from "../assets/logo.webp";
 import { PiPhoneCallThin } from "react-icons/pi";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
-
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Close dropdown when clicking outside of it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
-    <nav className="bg-white border-gray-200 pl-10 shadow-md fixed w-full top-0 left-0 z-50">
+    <nav
+      className={`bg-white border-gray-200 pl-10 shadow-md fixed w-full left-0 z-50 transition-all duration-300 ${
+        isSticky ? "fixed top-0" : "relative"
+      }`}
+    >
       <div className="container flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-bold">
-          <Link to="/"> {/* Use Link instead of anchor tag */}
+          <Link to="/">
             <img src={logo} alt="logo" className="w-24 md:w-28 lg:w-36" />
-            {/* Responsive logo size */}
           </Link>
         </div>
 
@@ -46,21 +76,21 @@ const Navbar = () => {
         {/* Links (for larger screens) */}
         <div
           className={`${
-            isOpen ? "block" : "hidden"
+            isOpen ? "block bg-white " : "hidden"
           } absolute w-full lg:ml-16 lg:flex lg:w-auto lg:bg-transparent top-full left-0 lg:relative lg:flex-grow lg:items-center`}
         >
-          <ul className="flex flex-col text-center lg:flex-row lg:space-x-8 md:px-8 lg:px-0 font-bold">
+          <ul className="flex flex-col text-center lg:flex-row lg:space-x-8 md:px-8 lg:px-0 font-bold ">
             <li>
               <Link
-                to="/" // Use Link instead of anchor tag
-                className="block text-gray-800 hover:text-blue-500 focus:border-b-4 border-red-500 pb-5 pt-8"
+                to="/"
+                className="block text-gray-800 hover:text-blue-500 focus:border-b-4 border-blue-500 pb-5 pt-8"
               >
                 Home
               </Link>
             </li>
             <li>
               <Link
-                to="/about" // Update this to your actual about page URL
+                to="/about"
                 className="block text-gray-800 py-0 hover:text-blue-500 active:border-b-4 border-indigo-500 pb-5 pt-8"
               >
                 About
@@ -68,24 +98,57 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/services" // Update this to your actual services page URL
+                to="/services"
                 className="block text-gray-800 py-0 hover:text-blue-500 active:border-b-4 border-indigo-500 pb-5 pt-8"
               >
                 Services
               </Link>
             </li>
-            <li>
-              <Link
-                to="/blog" // Update this to your actual blog page URL
-                className="block text-gray-800 py-0 hover:text-blue-500 active:border-b-4 border-indigo-500 pb-5 pt-8"
+
+            {/* Blog with Dropdown */}
+            <li className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setIsDropdownOpen((prev) => !prev)}
+                className="inline-block text-gray-800 py-0 hover:text-blue-500  active:border-b-4 border-indigo-500 pb-5 pt-8 focus:outline-none"
               >
                 Blog
-              </Link>
+              </button>
+              {isDropdownOpen && (
+                <div className="absolute  left-64  text-left w-40 bg-white border  shadow-lg rounded-sm z-50">
+                  <ul>
+                    <li>
+                      <Link
+                        to="/blog"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      >
+                        Blog
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/blog/article2"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      >
+                       Blog Details
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/blog/article3"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      >
+                        Element
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
             </li>
+
             <li>
               <Link
-                to="/contact" // Update this to your actual contact page URL
-                className="block text-gray-800 py-0 focus:border-b-4 border-red-500 pb-5 pt-8"
+                to="/contact"
+                className="block text-gray-800 py-0 focus:border-b-4 border-blue-500 pb-5 pt-8"
               >
                 Contact
               </Link>
@@ -106,7 +169,7 @@ const Navbar = () => {
             </a>
           </div>
           <Link
-            to="/appointment" // Update this to your actual appointment page URL
+            to="/appointment"
             className="px-6 py-7 bg-blue-500 text-white hover:bg-blue-600"
           >
             Make an Appointment
