@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaTwitter, FaFacebookF,  FaHeart, FaPinterestP } from "react-icons/fa";
+import { FaTwitter, FaFacebookF, FaPinterestP } from "react-icons/fa";
 function Footer() {
   return (
     <div>
@@ -57,18 +57,21 @@ function Footer() {
     </div>
   </div>
 
-  {/* Footer Background and Copyright */}
-  <div className="relative mt-16">
-    <img
-      className="w-full h-auto"
-      src="https://preview.colorlib.com/theme/laundry/assets/img/gallery/footer-bg.png"
-      alt="Footer Background"
-    />
- <p className="absolute inset-0 flex justify-center items-center text-center p-4 md:p-6 lg:p-8 font-light text-sm md:text-base lg:text-lg">
-        Copyright ©2024 All rights reserved. This template is made with
-        <FaHeart className=" text-red-500" /> by Colorlib
-      </p>
-  </div>
+{/* Footer Background and Copyright */}
+<div className="relative mt-16">
+  <img
+    className="w-full h-auto"
+    src="https://preview.colorlib.com/theme/laundry/assets/img/gallery/footer-bg.png"
+    alt="Footer Background"
+  />
+  
+  <p className="absolute inset-0 flex justify-center items-center text-center p-4 md:p-6 lg:p-8 font-light text-sm md:text-base lg:text-lg">
+    Copyright © 2024 All rights reserved. This template is made with 
+    &#10084; by Colorlib
+    
+  </p>
+</div>
+
 </section>
     </div>
   )

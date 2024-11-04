@@ -20,7 +20,7 @@ const Navbar = () => {
     };
   }, []);
 
-  // Close dropdown when clicking outside of it
+  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -34,6 +34,12 @@ const Navbar = () => {
     };
   }, []);
 
+  // Function to handle link click and close menu on mobile
+  const handleLinkClick = () => {
+    setIsOpen(false);
+    setIsDropdownOpen(false);
+  };
+
   return (
     <nav
       className={`bg-white border-gray-200 pl-10 shadow-md fixed w-full left-0 z-50 transition-all duration-300 ${
@@ -43,7 +49,7 @@ const Navbar = () => {
       <div className="container flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-bold">
-          <Link to="/">
+          <Link to="/" onClick={handleLinkClick}>
             <img src={logo} alt="logo" className="w-24 md:w-28 lg:w-36" />
           </Link>
         </div>
@@ -76,13 +82,14 @@ const Navbar = () => {
         {/* Links (for larger screens) */}
         <div
           className={`${
-            isOpen ? "block bg-white " : "hidden"
+            isOpen ? "block bg-white" : "hidden"
           } absolute w-full lg:ml-16 lg:flex lg:w-auto lg:bg-transparent top-full left-0 lg:relative lg:flex-grow lg:items-center`}
         >
-          <ul className="flex flex-col text-center lg:flex-row lg:space-x-8 md:px-8 lg:px-0 font-bold ">
+          <ul className="flex flex-col text-center lg:flex-row lg:space-x-8 md:px-8 lg:px-0 font-bold">
             <li>
               <Link
                 to="/"
+                onClick={handleLinkClick}
                 className="block text-gray-800 hover:text-blue-500 focus:border-b-4 border-blue-500 pb-5 pt-8"
               >
                 Home
@@ -91,6 +98,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/about"
+                onClick={handleLinkClick}
                 className="block text-gray-800 py-0 hover:text-blue-500 active:border-b-4 border-indigo-500 pb-5 pt-8"
               >
                 About
@@ -99,6 +107,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/services"
+                onClick={handleLinkClick}
                 className="block text-gray-800 py-0 hover:text-blue-500 active:border-b-4 border-indigo-500 pb-5 pt-8"
               >
                 Services
@@ -109,16 +118,17 @@ const Navbar = () => {
             <li className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setIsDropdownOpen((prev) => !prev)}
-                className="inline-block text-gray-800 py-0 hover:text-blue-500  active:border-b-4 border-indigo-500 pb-5 pt-8 focus:outline-none"
+                className="inline-block text-gray-800 py-0 hover:text-blue-500 active:border-b-4 border-indigo-500 pb-5 pt-8 focus:outline-none"
               >
                 Blog
               </button>
               {isDropdownOpen && (
-                <div className="absolute  text-left w-40 bg-white border  shadow-lg rounded-sm z-50">
-                  <ul>
+                <div className="absolute left-0 ml-[45%] w-40 bg-white border shadow-lg rounded-sm z-50">
+                  <ul className="text-left">
                     <li>
                       <Link
                         to="/blog"
+                        onClick={handleLinkClick}
                         className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                       >
                         Blog
@@ -126,18 +136,20 @@ const Navbar = () => {
                     </li>
                     <li>
                       <Link
-                        to="/blog/article2"
+                        to="/blogDetails"
+                        onClick={handleLinkClick}
                         className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                       >
-                       Blog Details
+                        Blog Details
                       </Link>
                     </li>
                     <li>
                       <Link
-                        to="/blog/article3"
+                        to="/elements"
+                        onClick={handleLinkClick}
                         className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                       >
-                        Element
+                        Elements
                       </Link>
                     </li>
                   </ul>
@@ -148,6 +160,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/contact"
+                onClick={handleLinkClick}
                 className="block text-gray-800 py-0 focus:border-b-4 border-blue-500 pb-5 pt-8"
               >
                 Contact

@@ -6,7 +6,10 @@ import Footer from "./components/Footer";
 import About from './components/About'
 import Contact from "./components/Contact";
 import Blog from './components/Blog'
+import BlogDetails from "./components/BlogDetails";
+import Elements from './components/Elements'
 function App() {
+
   return (
     <Router> {/* Wrap your application with Router */}
       <div>
@@ -17,6 +20,8 @@ function App() {
           <Route path="/about" element={<About />} />  
           <Route path="/blog" element={<Blog />} />  
           <Route path="/contact" element={<Contact />} /> 
+          <Route path="/elements" element={<Elements />} /> 
+          <Route path="/blogDetails" element={<BlogDetails />} /> 
           {/* You can add more routes here as needed */}
         </Routes>
         <Footer/>

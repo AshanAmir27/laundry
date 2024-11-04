@@ -1,0 +1,139 @@
+
+  .custom-marker-size {
+    font-size: 1.1rem; 
+    margin-left: 1.5rem;  
+  }
+  
+  .custom-marker-size li::marker {
+    font-size: 1.5rem; 
+    
+  } 
+
+  .nested-marker-size {
+    font-size: 1.1rem; 
+    margin-left: 2rem; 
+  } 
+
+  .custom-marker-size2{
+    font-size: 1.1rem; 
+    margin-left: 2rem; 
+    line-height: 2;
+    
+  }
+
+  .custom-marker-size2 li{
+    color: gray;
+  }
+  .custom-marker-size2 li::marker{
+    font-size: 1.2rem;
+  }
+
+  .switch{
+    padding-left: 1rem;
+    
+  }
+
+  .switch li{
+    margin-top: 1rem;
+    font-size: 16px;
+  }
+  .checkboxLabel {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically center items within the label */
+    cursor: pointer; /* Change cursor to pointer */
+  }
+  
+  .checkbox {
+    display: none; /* Hide the default checkbox */
+    
+  }
+
+  .customCheckbox {
+    width: 16px; /* Width of the custom checkbox */
+    height: 16px; /* Height of the custom checkbox */
+    border: 1px solid #ccc; /* Border for the custom checkbox */
+    border-radius: 3px; /* Slightly round corners */
+    margin-right: 8px; /* Space between checkbox and text */
+    position: relative;
+    
+    background-color: white; /* Background color for the custom checkbox */
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Change background color when checkbox is checked */
+  .checkboxLabel input:checked + .customCheckbox {
+    background-color: red; /* Change this to your desired color */
+  }
+  
+  /* Add tick mark */
+  .checkboxLabel input:checked + .customCheckbox::after {
+    content: ''; /* Empty content to create a pseudo-element */
+    position: absolute;
+    left: 4px; /* Adjust position for the tick mark */
+    top: 1px; /* Adjust position for the tick mark */
+    width: 4px; /* Width of the tick */
+    height: 8px; /* Height of the tick */
+    border: solid white; /* Color of the tick mark */
+    border-width: 0 2px 2px 0; /* Create a tick shape */
+    transform: rotate(45deg); /* Rotate to form a tick */
+  }
+
+  .RadioLabel {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically center items within the label */
+    cursor: pointer; /* Change cursor to pointer */
+  }
+  
+  .radioInput {
+    display: none; /* Hide the default radio button */
+  }
+  
+  .customRadio {
+    width: 16px; /* Width of the custom radio button */
+    height: 16px; /* Height of the custom radio button */
+    border: 2px solid #ccc; /* Border for the custom radio button */
+    border-radius: 50%; /* Make it round */
+    margin-right: 8px; /* Space between radio and text */
+    position: relative;
+    background-color: white; /* Background color for the custom radio */
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Change background color and border color when radio is checked */
+  .radioInput:checked + .customRadio {
+    background-color: red; /* Change background color to red */
+    border-color: red; /* Change border color to red */
+  }
+
+  .radioBlack{
+    display: none;
+  }
+
+  .radioBlack:checked + .customRadio{
+    background-color: black;
+    border-color: black;
+  }
+
+  .radioBlack:checked + .customRadio::after{
+    content: ''; /* Empty content to create a pseudo-element */
+    position: absolute;
+    left: 3px; /* Adjust position for the dot */
+    top: 2px; /* Adjust position for the dot */
+    width: 8px; /* Width of the dot */
+    height: 8px; /* Height of the dot */
+    border-radius: 50%; /* Make it round */
+    background-color: white; /* Dot color */
+  }
+  
+  /* Add the dot for the checked state */
+  .radioInput:checked + .customRadio::after {
+    content: ''; /* Empty content to create a pseudo-element */
+    position: absolute;
+    left: 3px; /* Adjust position for the dot */
+    top: 2px; /* Adjust position for the dot */
+    width: 8px; /* Width of the dot */
+    height: 8px; /* Height of the dot */
+    border-radius: 50%; /* Make it round */
+    background-color: white; /* Dot color */
+  }
+  

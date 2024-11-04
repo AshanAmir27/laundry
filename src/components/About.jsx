@@ -11,7 +11,7 @@ function About() {
   return (
     <section className="bg-gray-100 ">
       <Banner heading="About Us" ProcessSubcomponent={false} />
-      <AboutCompany />
+      <AboutCompany/>
       <ProcessSubComponent/>
       <Call />
       <TestimonialSlider />

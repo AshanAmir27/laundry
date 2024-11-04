@@ -3,7 +3,7 @@ import React from 'react'
 function AboutCompany() {
   return (
     <div>
-         <section className="flex flex-col lg:flex-row w-11/12 lg:w-4/5 mx-auto mt-48">
+         <section className="flex flex-col lg:flex-row w-11/12 lg:w-4/5 mx-auto mt-14">
           <div className="w-full lg:w-1/2">
             <img src="https://preview.colorlib.com/theme/laundry/assets/img/gallery/about1.png" alt="About Company" className="w-full h-auto object-cover" />
           </div>
