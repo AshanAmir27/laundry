@@ -131,7 +131,7 @@ function BlogDetails() {
                       <img
                         src={prev}
                         alt="prev"
-                        className="w-24 h-20 object-cover"
+                        className="w-24 h-12 object-cover lg:h-20"
                       />
                       {hovered === "prev" && (
                         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300">
@@ -141,7 +141,7 @@ function BlogDetails() {
                     </div>
                     <div className="pl-4">
                       <p className="text-gray-500 text-lg">Prev Post</p>
-                      <p className="text-xl font-normal">
+                      <p className="text-sm font-normal lg:text-xl">
                         Space The Final Frontier
                       </p>
                     </div>
@@ -155,7 +155,7 @@ function BlogDetails() {
                   >
                     <div className="pr-4 text-right">
                       <p className="text-gray-500 text-lg">Next Post</p>
-                      <p className="text-xl font-normal">
+                      <p className="text-sm font-normal lg:text-xl">
                         Exploring the Cosmos
                       </p>
                     </div>
@@ -163,7 +163,7 @@ function BlogDetails() {
                       <img
                         src={next}
                         alt="next"
-                        className="w-24 h-20 object-cover"
+                        className="w-24 h-12 object-cover lg:h-20"
                       />
                       {hovered === "next" && (
                         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300">
@@ -188,12 +188,12 @@ function BlogDetails() {
 
                 <hr className="mt-20" />
 
-                <div className="m-[-32px] w-4/5 mx-auto">
+                <div className="m-[-32px] w-full mx-auto">
                   <h1 className="text-lg">05 Comments</h1>
 
                   {/* Comment Container */}
-                  <div className="flex flex-col space-y-16 mt-16 w-4/5 mx-auto">
-                    <div className="flex w-full mx-auto items-start">
+                  <div className="flex flex-col space-y-16 mt-16 w-full  mx-auto">
+                    <div className="flex w-full mx-auto items-start ">
                       <img
                         src={comment1}
                         alt=""
@@ -207,10 +207,10 @@ function BlogDetails() {
                           lesser.
                         </p>
 
-                        <div className="flex mt-2 justify-between w-full md:w-4/5">
+                        <div className="flex mt-2 justify-between w-full md:w-4/5 ">
                           <div className="flex items-center">
                             <a href="/" className="hover:text-blue-400">
-                              <h1 className="text-md md:text-lg lg:text-xl">
+                              <h1 className="text-xs md:text-lg lg:text-xl">
                                 Emilly Blunt
                               </h1>
                             </a>
@@ -243,10 +243,10 @@ function BlogDetails() {
                           twon Second divided from.
                         </p>
 
-                        <div className="flex mt-2 justify-between w-full md:w-4/5">
+                        <div className="flex mt-2 justify-between w-full md:w-4/5 ">
                           <div className="flex items-center">
                             <a href="/" className="hover:text-blue-400">
-                              <h1 className="text-md md:text-lg lg:text-xl">
+                              <h1 className="text-xs md:text-lg lg:text-xl">
                                 Emilly Blunt
                               </h1>
                             </a>
@@ -279,10 +279,10 @@ function BlogDetails() {
                           twon Second divided from.
                         </p>
 
-                        <div className="flex mt-2 justify-between w-full md:w-4/5">
+                        <div className="flex mt-2 justify-between w-full md:w-4/5 ">
                           <div className="flex items-center">
                             <a href="/" className="hover:text-blue-400">
-                              <h1 className="text-md md:text-lg lg:text-xl">
+                              <h1 className="text-xs md:text-lg lg:text-xl">
                                 Emilly Blunt
                               </h1>
                             </a>
